@@ -3,7 +3,6 @@
 <p align="center">
   <img src="https://github.com/utkarsh7678/LostAndFound/blob/main/src/main/webapp/assets/ChatGPT%20Image%20Aug%2029%2C%202025%2C%2002_34_02%20PM.png?raw=true" alt="Project Logo" width="200" height="200">
 </p>
-
 A **Java/JSP web application** to report lost/found items, browse lists, and view automatic matches, with a simple chat for matched items.  
 Built with **Servlet/JSP, MongoDB, and Maven**; deployable on **Apache Tomcat**.  
 
@@ -140,4 +139,4 @@ Matches auto-created in LostItemServlet via regex matching on name/location.
 
 👨‍💻 Author
 
-.Utkarsh Kumar 🚀
+Utkarsh Kumar 🚀
