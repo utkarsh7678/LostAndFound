@@ -10,7 +10,9 @@
 <body>
 <div class="navbar">
     <div class="nav-brand">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f50d.svg" alt="Logo"/>
+        <span class="stack">
+            <img src="<%= request.getContextPath() %>/assets/ChatGPT Image Aug 29, 2025, 02_34_02 PM.png" alt="Brand"/>
+        </span>
         <a href="<%= request.getContextPath() %>/pages/dashboard.jsp" style="color:#fff; text-decoration:none;">Lost &amp; Found</a>
     </div>
     <div class="nav-links">
@@ -32,13 +34,14 @@
     %>
     <table class="table mt-3">
         <thead>
-        <tr><th>Matched (Lost)</th><th>Matched (Found)</th><th>Status</th><th>Action</th></tr>
+        <tr><th>Lost Item</th><th>Found Item</th><th>Found Image</th><th>Status</th><th>Action</th></tr>
         </thead>
         <tbody>
         <%
             for (Document m : matches) {
                 Document lost = (Document) m.get("lost");
                 Document found = (Document) m.get("found");
+                String foundImg = found != null ? found.getString("imageUrl") : null;
         %>
         <tr>
             <td>
@@ -48,6 +51,17 @@
             <td>
                 <b><%= found != null ? found.getString("itemName") : "N/A" %></b><br/>
                 <%= found != null ? found.getString("location") : "" %>
+            </td>
+            <td>
+                <%
+                    if (foundImg != null && !foundImg.isEmpty()) {
+                %>
+                    <img class="w-80" src="<%= foundImg %>" alt="found"/>
+                <%
+                    } else {
+                        out.print("No image");
+                    }
+                %>
             </td>
             <td><%= m.getString("status") %></td>
             <td>
